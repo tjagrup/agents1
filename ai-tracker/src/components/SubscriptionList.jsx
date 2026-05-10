@@ -1,5 +1,18 @@
 import { useState } from 'react'
-import { Pencil, Trash2, Plus, ChevronUp, ChevronDown } from 'lucide-react'
+import { Pencil, Trash2, Plus, ChevronUp, ChevronDown, Download } from 'lucide-react'
+
+function exportCSV(subs) {
+  const headers = ['Name', 'Provider', 'Plan', 'Category', 'Cost', 'Cycle', 'Monthly Cost', 'Status', 'Renewal Date', 'Notes']
+  const rows = subs.map(s => [
+    s.name, s.provider, s.plan, s.category, s.cost, s.cycle,
+    monthlyCost(s).toFixed(2), s.status, s.renewalDate || '', s.notes || '',
+  ])
+  const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n')
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }))
+  a.download = 'ai-subscriptions.csv'
+  a.click()
+}
 
 const CATEGORY_COLORS = {
   LLM: '#7c6af7',
@@ -23,6 +36,7 @@ function daysUntil(dateStr) {
 }
 
 export default function SubscriptionList({ subs, onEdit, onDelete, onAdd }) {
+
   const [filter, setFilter] = useState('all')
   const [sort, setSort] = useState({ key: 'name', dir: 'asc' })
   const [search, setSearch] = useState('')
@@ -53,6 +67,11 @@ export default function SubscriptionList({ subs, onEdit, onDelete, onAdd }) {
     <div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
         <h2 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', marginRight: 'auto' }}>Subscriptions</h2>
+        {subs.length > 0 && (
+          <button onClick={() => exportCSV(subs)} title="Export CSV" style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'transparent', border: '1px solid var(--border)', borderRadius: 8, padding: '7px 12px', color: 'var(--muted)', fontSize: 13 }}>
+            <Download size={14} /> Export CSV
+          </button>
+        )}
         <input
           type="text"
           placeholder="Search..."
@@ -83,8 +102,8 @@ export default function SubscriptionList({ subs, onEdit, onDelete, onAdd }) {
       {filtered.length === 0 ? (
         <EmptyState onAdd={onAdd} />
       ) : (
-        <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <div className="table-wrap" style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 700 }}>
             <thead>
               <tr style={{ borderBottom: '1px solid var(--border)' }}>
                 {[['name', 'Name'], ['provider', 'Provider'], ['category', 'Category'], ['cost', 'Monthly Cost'], ['cycle', 'Billing'], ['renewalDate', 'Renews'], ['status', 'Status']].map(([key, label]) => (

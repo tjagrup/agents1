@@ -27,7 +27,7 @@ export default function Dashboard({ subs }) {
   return (
     <div style={{ marginBottom: 32 }}>
       <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 16, color: 'var(--text)' }}>Overview</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
+      <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
         <StatCard
           icon={<DollarSign size={20} />}
           label="Monthly Spend"

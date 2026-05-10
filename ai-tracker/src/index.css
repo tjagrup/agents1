@@ -34,3 +34,21 @@ input, select, textarea { font-family: inherit; }
   padding: 0 20px;
   width: 100%;
 }
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .chart-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .header-row {
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Dashboard from './components/Dashboard'
+import SpendingChart from './components/SpendingChart'
 import SubscriptionList from './components/SubscriptionList'
 import SubscriptionModal from './components/SubscriptionModal'
 import Header from './components/Header'
@@ -59,6 +60,7 @@ export default function App() {
       <main style={{ flex: 1, padding: '24px 0 48px' }}>
         <div className="container">
           <Dashboard subs={subs} />
+          <SpendingChart subs={subs} />
           <SubscriptionList subs={subs} onEdit={handleEdit} onDelete={handleDelete} onAdd={handleAdd} />
         </div>
       </main>
