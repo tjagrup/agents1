@@ -1,0 +1,58 @@
+Column,Type,Description,Range/Values
+patient_id,ID,Unique patient identifier,P00001-P05000
+age,Integer,Patient age in years,18-85
+sex,Categorical,Biological sex,Male/Female
+ethnicity,Categorical,Patient ethnicity,Caucasian/African American/Hispanic/Asian/Native American/Other
+education_level,Categorical,Highest education completed,Less than HS/High School/Some College/Bachelor/Graduate
+annual_income_k,Float,Annual household income in thousands USD,15-500
+insurance_type,Categorical,Type of health insurance,Private/Medicare/Medicaid/Uninsured/Other
+occupation_type,Categorical,Physical activity level of occupation,Sedentary/Light/Moderate/Heavy Labor
+residence_type,Categorical,Living environment,Urban/Suburban/Rural
+smoking_status,Categorical,Smoking history,Never/Former/Current
+alcohol_drinks_per_week,Integer,Average alcoholic drinks per week,0-30+
+physical_activity_min_per_week,Integer,Minutes of moderate exercise per week,0-500+
+diet_quality_score,Float,Diet quality (10=healthiest),1-10
+avg_sleep_hours,Float,Average hours of sleep per night,3-12
+stress_level,Float,Self-reported stress level,1-10
+family_history_diabetes,Binary,Family history of diabetes,"0=No, 1=Yes"
+family_history_hypertension,Binary,Family history of hypertension,"0=No, 1=Yes"
+gestational_diabetes_history,Binary,History of gestational diabetes (females only),"0=No, 1=Yes"
+pcos_diagnosis,Binary,PCOS diagnosis (females only),"0=No, 1=Yes"
+metabolic_syndrome,Binary,Metabolic syndrome diagnosis,"0=No, 1=Yes"
+bmi_current,Float,Current Body Mass Index,16-50
+bmi_1yr_ago,Float,BMI 1 year ago,16-50
+bmi_2yr_ago,Float,BMI 2 years ago,16-50
+systolic_bp_current,Integer,Current systolic blood pressure,90-200 mmHg
+systolic_bp_3mo_ago,Integer,Systolic BP 3 months ago,90-200 mmHg
+systolic_bp_6mo_ago,Integer,Systolic BP 6 months ago,90-200 mmHg
+diastolic_bp_current,Integer,Current diastolic blood pressure,60-130 mmHg
+diastolic_bp_3mo_ago,Integer,Diastolic BP 3 months ago,60-130 mmHg
+diastolic_bp_6mo_ago,Integer,Diastolic BP 6 months ago,60-130 mmHg
+hrv_rmssd,Float,Heart rate variability (RMSSD),10-100 ms
+resting_heart_rate,Integer,Resting heart rate,45-110 bpm
+hba1c_current,Float,Current HbA1c level,4.0-14.0 %
+hba1c_3mo_ago,Float,HbA1c 3 months ago,4.0-14.0 %
+hba1c_6mo_ago,Float,HbA1c 6 months ago,4.0-14.0 %
+fasting_glucose_current,Integer,Current fasting glucose,60-400 mg/dL
+fasting_glucose_3mo_ago,Integer,Fasting glucose 3 months ago,60-400 mg/dL
+ogtt_2hr_glucose,Integer,Oral glucose tolerance test 2-hour value,70-500 mg/dL
+total_cholesterol,Integer,Total cholesterol,100-400 mg/dL
+ldl_cholesterol,Integer,LDL cholesterol,40-250 mg/dL
+hdl_cholesterol,Integer,HDL cholesterol,20-100 mg/dL
+triglycerides,Integer,Triglycerides,30-500 mg/dL
+creatinine,Float,Serum creatinine,0.4-5.0 mg/dL
+egfr,Integer,Estimated glomerular filtration rate,15-150 mL/min/1.73m²
+microalbumin,Float,Urine microalbumin,0-500 mg/g
+on_metformin,Binary,Currently taking metformin,"0=No, 1=Yes"
+on_statins,Binary,Currently taking statins,"0=No, 1=Yes"
+on_ace_inhibitors,Binary,Currently taking ACE inhibitors,"0=No, 1=Yes"
+on_beta_blockers,Binary,Currently taking beta blockers,"0=No, 1=Yes"
+medication_adherence_pct,Integer,Medication adherence percentage,0-100%
+doctor_visits_last_year,Integer,Number of doctor visits in past year,0-20+
+er_visits_last_year,Integer,ER visits in past year,0-10+
+hospitalizations_last_year,Integer,Hospitalizations in past year,0-5+
+preventive_care_compliance,Integer,Preventive care compliance rate,0-100%
+has_diabetes,Binary,Current diabetes diagnosis (HbA1c≥6.5),"0=No, 1=Yes"
+has_hypertension,Binary,Current hypertension diagnosis (BP≥140/90),"0=No, 1=Yes"
+diabetes_risk_score,Integer,Calculated diabetes risk score,0-100
+hypertension_risk_score,Integer,Calculated hypertension risk score,0-100
